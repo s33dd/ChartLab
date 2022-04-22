@@ -24,7 +24,7 @@
     /// </summary>
     private void InitializeComponent() {
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-      System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+      System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
       this.menuStrip = new System.Windows.Forms.MenuStrip();
       this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.saveInitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -33,12 +33,10 @@
       this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.FuncLabel = new System.Windows.Forms.Label();
       this.pictureBox1 = new System.Windows.Forms.PictureBox();
-      this.RCoefLabel = new System.Windows.Forms.Label();
-      this.YLabel = new System.Windows.Forms.Label();
+      this.RadiusLabel = new System.Windows.Forms.Label();
       this.LowBorderLabel = new System.Windows.Forms.Label();
       this.HighBorderLabel = new System.Windows.Forms.Label();
-      this.RCoefData = new System.Windows.Forms.TextBox();
-      this.YData = new System.Windows.Forms.TextBox();
+      this.RadiusData = new System.Windows.Forms.TextBox();
       this.LowBorderData = new System.Windows.Forms.TextBox();
       this.HighBorderData = new System.Windows.Forms.TextBox();
       this.DrawBtn = new System.Windows.Forms.Button();
@@ -118,31 +116,21 @@
       this.pictureBox1.TabIndex = 2;
       this.pictureBox1.TabStop = false;
       // 
-      // RCoefLabel
+      // RadiusLabel
       // 
-      this.RCoefLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-      this.RCoefLabel.AutoSize = true;
-      this.RCoefLabel.Location = new System.Drawing.Point(615, 106);
-      this.RCoefLabel.Name = "RCoefLabel";
-      this.RCoefLabel.Size = new System.Drawing.Size(16, 13);
-      this.RCoefLabel.TabIndex = 3;
-      this.RCoefLabel.Text = "r :";
-      // 
-      // YLabel
-      // 
-      this.YLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-      this.YLabel.AutoSize = true;
-      this.YLabel.Location = new System.Drawing.Point(613, 141);
-      this.YLabel.Name = "YLabel";
-      this.YLabel.Size = new System.Drawing.Size(18, 13);
-      this.YLabel.TabIndex = 4;
-      this.YLabel.Text = "y :";
+      this.RadiusLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+      this.RadiusLabel.AutoSize = true;
+      this.RadiusLabel.Location = new System.Drawing.Point(615, 106);
+      this.RadiusLabel.Name = "RadiusLabel";
+      this.RadiusLabel.Size = new System.Drawing.Size(16, 13);
+      this.RadiusLabel.TabIndex = 3;
+      this.RadiusLabel.Text = "r :";
       // 
       // LowBorderLabel
       // 
       this.LowBorderLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
       this.LowBorderLabel.AutoSize = true;
-      this.LowBorderLabel.Location = new System.Drawing.Point(571, 172);
+      this.LowBorderLabel.Location = new System.Drawing.Point(571, 139);
       this.LowBorderLabel.Name = "LowBorderLabel";
       this.LowBorderLabel.Size = new System.Drawing.Size(63, 13);
       this.LowBorderLabel.TabIndex = 5;
@@ -152,32 +140,24 @@
       // 
       this.HighBorderLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
       this.HighBorderLabel.AutoSize = true;
-      this.HighBorderLabel.Location = new System.Drawing.Point(571, 205);
+      this.HighBorderLabel.Location = new System.Drawing.Point(571, 172);
       this.HighBorderLabel.Name = "HighBorderLabel";
       this.HighBorderLabel.Size = new System.Drawing.Size(65, 13);
       this.HighBorderLabel.TabIndex = 6;
       this.HighBorderLabel.Text = "High border:";
       // 
-      // RCoefData
+      // RadiusData
       // 
-      this.RCoefData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-      this.RCoefData.Location = new System.Drawing.Point(651, 103);
-      this.RCoefData.Name = "RCoefData";
-      this.RCoefData.Size = new System.Drawing.Size(86, 20);
-      this.RCoefData.TabIndex = 7;
-      // 
-      // YData
-      // 
-      this.YData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-      this.YData.Location = new System.Drawing.Point(651, 138);
-      this.YData.Name = "YData";
-      this.YData.Size = new System.Drawing.Size(86, 20);
-      this.YData.TabIndex = 8;
+      this.RadiusData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+      this.RadiusData.Location = new System.Drawing.Point(651, 103);
+      this.RadiusData.Name = "RadiusData";
+      this.RadiusData.Size = new System.Drawing.Size(86, 20);
+      this.RadiusData.TabIndex = 7;
       // 
       // LowBorderData
       // 
       this.LowBorderData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-      this.LowBorderData.Location = new System.Drawing.Point(651, 170);
+      this.LowBorderData.Location = new System.Drawing.Point(651, 137);
       this.LowBorderData.Name = "LowBorderData";
       this.LowBorderData.Size = new System.Drawing.Size(86, 20);
       this.LowBorderData.TabIndex = 9;
@@ -185,7 +165,7 @@
       // HighBorderData
       // 
       this.HighBorderData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-      this.HighBorderData.Location = new System.Drawing.Point(651, 203);
+      this.HighBorderData.Location = new System.Drawing.Point(651, 170);
       this.HighBorderData.Name = "HighBorderData";
       this.HighBorderData.Size = new System.Drawing.Size(86, 20);
       this.HighBorderData.TabIndex = 10;
@@ -194,7 +174,7 @@
       // 
       this.DrawBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
       this.DrawBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-      this.DrawBtn.Location = new System.Drawing.Point(570, 284);
+      this.DrawBtn.Location = new System.Drawing.Point(570, 251);
       this.DrawBtn.Name = "DrawBtn";
       this.DrawBtn.Size = new System.Drawing.Size(92, 33);
       this.DrawBtn.TabIndex = 11;
@@ -206,7 +186,7 @@
       // 
       this.StepLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
       this.StepLabel.AutoSize = true;
-      this.StepLabel.Location = new System.Drawing.Point(608, 238);
+      this.StepLabel.Location = new System.Drawing.Point(608, 205);
       this.StepLabel.Name = "StepLabel";
       this.StepLabel.Size = new System.Drawing.Size(32, 13);
       this.StepLabel.TabIndex = 12;
@@ -215,7 +195,7 @@
       // StepData
       // 
       this.StepData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-      this.StepData.Location = new System.Drawing.Point(651, 236);
+      this.StepData.Location = new System.Drawing.Point(651, 203);
       this.StepData.Name = "StepData";
       this.StepData.Size = new System.Drawing.Size(86, 20);
       this.StepData.TabIndex = 13;
@@ -224,8 +204,8 @@
       // 
       this.FuncChart.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-      chartArea2.Name = "ChartArea1";
-      this.FuncChart.ChartAreas.Add(chartArea2);
+      chartArea1.Name = "ChartArea1";
+      this.FuncChart.ChartAreas.Add(chartArea1);
       this.FuncChart.Cursor = System.Windows.Forms.Cursors.Default;
       this.FuncChart.Location = new System.Drawing.Point(24, 45);
       this.FuncChart.Name = "FuncChart";
@@ -237,7 +217,7 @@
       // 
       this.TableBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
       this.TableBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-      this.TableBtn.Location = new System.Drawing.Point(707, 284);
+      this.TableBtn.Location = new System.Drawing.Point(707, 251);
       this.TableBtn.Name = "TableBtn";
       this.TableBtn.Size = new System.Drawing.Size(92, 33);
       this.TableBtn.TabIndex = 15;
@@ -257,12 +237,10 @@
       this.Controls.Add(this.DrawBtn);
       this.Controls.Add(this.HighBorderData);
       this.Controls.Add(this.LowBorderData);
-      this.Controls.Add(this.YData);
-      this.Controls.Add(this.RCoefData);
+      this.Controls.Add(this.RadiusData);
       this.Controls.Add(this.HighBorderLabel);
       this.Controls.Add(this.LowBorderLabel);
-      this.Controls.Add(this.YLabel);
-      this.Controls.Add(this.RCoefLabel);
+      this.Controls.Add(this.RadiusLabel);
       this.Controls.Add(this.pictureBox1);
       this.Controls.Add(this.FuncLabel);
       this.Controls.Add(this.menuStrip);
@@ -288,12 +266,10 @@
     private System.Windows.Forms.ToolStripMenuItem openFileToolStripMenuItem;
     private System.Windows.Forms.Label FuncLabel;
     private System.Windows.Forms.PictureBox pictureBox1;
-    private System.Windows.Forms.Label RCoefLabel;
-    private System.Windows.Forms.Label YLabel;
+    private System.Windows.Forms.Label RadiusLabel;
     private System.Windows.Forms.Label LowBorderLabel;
     private System.Windows.Forms.Label HighBorderLabel;
-    private System.Windows.Forms.TextBox RCoefData;
-    private System.Windows.Forms.TextBox YData;
+    private System.Windows.Forms.TextBox RadiusData;
     private System.Windows.Forms.TextBox LowBorderData;
     private System.Windows.Forms.TextBox HighBorderData;
     private System.Windows.Forms.Button DrawBtn;
