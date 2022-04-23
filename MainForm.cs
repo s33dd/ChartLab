@@ -22,6 +22,17 @@ namespace ChartLabFramework {
       about.ShowDialog();
     }
 
+    private int Precision(double value) {
+      string step = value.ToString();
+      if (step.Contains(',')) {
+        step = step.Substring(step.IndexOf(',') + 1);
+        return step.Length + 1;
+      }
+      else {
+        return 0;
+      }
+    }
+
     private void DrawBtn_Click(object sender, EventArgs e) {
       double? highBorder = null;
       double? lowBorder = null;
@@ -29,13 +40,8 @@ namespace ChartLabFramework {
       double? radius = null;
       double? y = null;
       double? x = null;
-      try {
-        FuncChart.Series["Cycloid"].Points.Clear();
-      }
-      catch {
-        FuncChart.Series.Add("Cycloid");
-        FuncChart.ChartAreas.Add("Cycloid");
-      }
+      int precision = 0;
+      //Input check
       if (RadiusData.Text == "" || HighBorderData.Text == "" || LowBorderData.Text == "" || HighBorderData.Text == "" || StepData.Text == "") {
         MessageBox.Show("Please, fill all fields.", "Error!");
         return;
@@ -50,10 +56,22 @@ namespace ChartLabFramework {
         MessageBox.Show("Please, check your data. There is some problems with it.", "Error!");
         return;
       }
+
+      //Creating chart
+      try {
+        FuncChart.Series["Cycloid"].Points.Clear();
+      }
+      catch {
+        FuncChart.Series.Add("Cycloid");
+        FuncChart.ChartAreas.Add("Cycloid");
+      }
       FuncChart.Series["Cycloid"].Color = Color.Red;
       FuncChart.Series["Cycloid"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+
+      //Calculating values
       Cycloid function = new Cycloid();
       function.Radius = (double)radius;
+      precision = Precision((double)step);
       y = lowBorder;
       while (y <= highBorder) {
         function.Y = (double)y;
@@ -63,7 +81,6 @@ namespace ChartLabFramework {
       };
       FuncChart.ChartAreas["Cycloid"].AxisX.Maximum = (double)x + 1;
       FuncChart.ChartAreas["Cycloid"].AxisY.Maximum = (double)y + 1;
-      //ReDrawing chart problem
     }
   }
 }
