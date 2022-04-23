@@ -31,22 +31,25 @@ namespace ChartLabFramework {
       double? x = null;
       try {
         FuncChart.Series["Cycloid"].Points.Clear();
+        FuncChart.ChartAreas["Cycloid"].Dispose();
       }
       catch {
         FuncChart.Series.Add("Cycloid");
+        FuncChart.ChartAreas.Add("Cycloid");
       }
       if (RadiusData.Text == "" || HighBorderData.Text == "" || LowBorderData.Text == "" || HighBorderData.Text == "" || StepData.Text == "") {
         MessageBox.Show("Please, fill all fields.", "Error!");
         return;
       }
       try {
-        highBorder = Convert.ToDouble(RadiusData.Text);
+        highBorder = Convert.ToDouble(HighBorderData.Text);
         lowBorder = Convert.ToDouble(LowBorderData.Text);
         step = Convert.ToDouble(StepData.Text);
         radius = Convert.ToDouble(RadiusData.Text);
       }
       catch {
         MessageBox.Show("Please, check your data. There is some problems with it.", "Error!");
+        return;
       }
       FuncChart.Series["Cycloid"].Color = Color.Red;
       FuncChart.Series["Cycloid"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
@@ -55,11 +58,13 @@ namespace ChartLabFramework {
       y = lowBorder;
       while (y <= highBorder) {
         function.Y = (double)y;
-        x = function.Count();
+        x = Math.Round(function.Count(), 5);
         FuncChart.Series["Cycloid"].Points.AddXY(x, y);
         y += step;
       };
-      //Borders problem, small values problem
+      FuncChart.ChartAreas["Cycloid"].AxisX.Maximum = (double)x + 1;
+      FuncChart.ChartAreas["Cycloid"].AxisY.Maximum = (double)y + 1;
+      //ReDrawing chart problem
     }
   }
 }

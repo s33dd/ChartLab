@@ -24,7 +24,6 @@
     /// </summary>
     private void InitializeComponent() {
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-      System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
       this.menuStrip = new System.Windows.Forms.MenuStrip();
       this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.saveInitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -204,8 +203,6 @@
       // 
       this.FuncChart.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-      chartArea1.Name = "ChartArea1";
-      this.FuncChart.ChartAreas.Add(chartArea1);
       this.FuncChart.Cursor = System.Windows.Forms.Cursors.Default;
       this.FuncChart.Location = new System.Drawing.Point(24, 45);
       this.FuncChart.Name = "FuncChart";
