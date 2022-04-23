@@ -31,7 +31,6 @@ namespace ChartLabFramework {
       double? x = null;
       try {
         FuncChart.Series["Cycloid"].Points.Clear();
-        FuncChart.ChartAreas["Cycloid"].Dispose();
       }
       catch {
         FuncChart.Series.Add("Cycloid");
