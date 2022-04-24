@@ -61,6 +61,9 @@ namespace ChartLabFramework {
         MessageBox.Show("Please, check your data. There is some problems with it.", "Error!");
         return;
       }
+      if (DataProcessing.DataCheck((double)highBorder, (double)lowBorder, (double)radius) == false) {
+        return;
+      }
 
       //Creating chart
       try {
@@ -79,7 +82,7 @@ namespace ChartLabFramework {
       precision = Precision((double)step);
 
       //Precision error processing
-      if (precision >= 4) {
+      if (step <= 0 | precision >= 4) {
         MessageBox.Show("This step will lead to infinite calculation.", "Error!");
         return;
       }
