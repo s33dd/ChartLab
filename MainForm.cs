@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,9 +25,13 @@ namespace ChartLabFramework {
 
     private int Precision(double value) {
       string step = value.ToString();
-      if (step.Contains(',')) {
+      if (step.Contains('E')) {
+        step = step.Substring(step.IndexOf('E') + 2);
+        return Convert.ToInt32(step);
+      }
+      else if (step.Contains(',')) {
         step = step.Substring(step.IndexOf(',') + 1);
-        return step.Length + 1;
+        return step.Length;
       }
       else {
         return 0;
@@ -49,7 +54,7 @@ namespace ChartLabFramework {
       try {
         highBorder = Convert.ToDouble(HighBorderData.Text);
         lowBorder = Convert.ToDouble(LowBorderData.Text);
-        step = Convert.ToDouble(StepData.Text);
+        step = Double.Parse(StepData.Text, NumberStyles.Float);
         radius = Convert.ToDouble(RadiusData.Text);
       }
       catch {
@@ -72,12 +77,29 @@ namespace ChartLabFramework {
       Cycloid function = new Cycloid();
       function.Radius = (double)radius;
       precision = Precision((double)step);
+
+      //Precision error processing
+      if (precision >= 4) {
+        MessageBox.Show("This step will lead to infinite calculation.", "Error!");
+        return;
+      }
+      if (step >= 1) {
+        MessageBox.Show("This step is too huge. Chart will be uncorrect.", "Warning!");
+      }
+
+      //Drawing chart
       y = lowBorder;
       while (y <= highBorder) {
         function.Y = (double)y;
         x = Math.Round(function.Count(), 5);
         FuncChart.Series["Cycloid"].Points.AddXY(x, y);
         y += step;
+        if (precision != 0) {
+          y = Math.Round((double)y, precision);
+        }
+        else {
+          y = Math.Truncate((double)y);
+        }
       };
       FuncChart.ChartAreas["Cycloid"].AxisX.Maximum = (double)x + 1;
       FuncChart.ChartAreas["Cycloid"].AxisY.Maximum = (double)y + 1;
