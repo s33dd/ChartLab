@@ -55,6 +55,12 @@
     </Compile>
     <Compile Include="DataProcessing.cs" />
     <Compile Include="Cycloid.cs" />
+    <Compile Include="DataTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataTable.Designer.cs">
+      <DependentUpon>DataTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +71,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataTable.resx">
+      <DependentUpon>DataTable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

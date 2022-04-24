@@ -220,6 +220,7 @@
       this.TableBtn.TabIndex = 15;
       this.TableBtn.Text = "Show table";
       this.TableBtn.UseVisualStyleBackColor = true;
+      this.TableBtn.Click += new System.EventHandler(this.TableBtn_Click);
       // 
       // MainForm
       // 

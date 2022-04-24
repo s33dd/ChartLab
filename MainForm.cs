@@ -11,14 +11,13 @@ using System.Windows.Forms;
 
 namespace ChartLabFramework {
   public partial class MainForm : Form {
+    private System.Data.DataTable data;
     public MainForm() {
       InitializeComponent();
-      this.StartPosition = FormStartPosition.CenterScreen;
+      StartPosition = FormStartPosition.CenterScreen;
     }
 
     private void aboutToolStripMenuItem_Click(object sender, EventArgs e) {
-      string message = $"Program was made by Sukhoverikov Denis{Environment.NewLine}" +
-        $"var 6 'Cycloid chart'";
       AboutForm about = new AboutForm();
       about.ShowDialog();
     }
@@ -46,6 +45,7 @@ namespace ChartLabFramework {
       double? y = null;
       double? x = null;
       int precision = 0;
+      data = null;
       //Input check
       if (RadiusData.Text == "" || HighBorderData.Text == "" || LowBorderData.Text == "" || HighBorderData.Text == "" || StepData.Text == "") {
         MessageBox.Show("Please, fill all fields.", "Error!");
@@ -90,11 +90,18 @@ namespace ChartLabFramework {
         MessageBox.Show("This step is too huge. Chart will be uncorrect.", "Warning!");
       }
 
-      //Drawing chart
+      //Drawing chart and adding data to table
       y = lowBorder;
+      data = new System.Data.DataTable();
+      data.Columns.Add("X");
+      data.Columns.Add("Y");
       while (y <= highBorder) {
+        DataRow row = data.NewRow();
+        row["Y"] = y;
         function.Y = (double)y;
         x = Math.Round(function.Count(), 5);
+        row["X"] = x;
+        data.Rows.Add(row);
         FuncChart.Series["Cycloid"].Points.AddXY(x, y);
         y += step;
         if (precision != 0) {
@@ -106,6 +113,16 @@ namespace ChartLabFramework {
       };
       FuncChart.ChartAreas["Cycloid"].AxisX.Maximum = (double)x + 1;
       FuncChart.ChartAreas["Cycloid"].AxisY.Maximum = (double)y + 1;
+    }
+
+    private void TableBtn_Click(object sender, EventArgs e) {
+      if (data == null) {
+        MessageBox.Show("You need to draw the chart before.", "Warning!");
+        return;
+      }
+      DataTable table = new DataTable();
+      table.Data = data;
+      table.Show();
     }
   }
 }
