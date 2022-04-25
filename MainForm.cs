@@ -144,7 +144,7 @@ namespace ChartLabFramework {
       }
       if (SaveInit.ShowDialog() == DialogResult.OK) {
         string filepath = SaveInit.FileName;
-        using (StreamWriter writer = new StreamWriter(filepath,false)) {
+        using (StreamWriter writer = new StreamWriter(filepath, false)) {
           writer.WriteLine(RadiusData.Text);
           writer.WriteLine(LowBorderData.Text);
           writer.WriteLine(HighBorderData.Text);
@@ -162,6 +162,23 @@ namespace ChartLabFramework {
           LowBorderData.Text = reader.ReadLine();
           HighBorderData.Text = reader.ReadLine();
           StepData.Text = reader.ReadLine();
+        }
+      }
+    }
+
+    private void saveResultToolStripMenuItem_Click(object sender, EventArgs e) {
+      SaveResult.Filter = "txt files (*.txt)|*.txt";
+      if (data == null) {
+        MessageBox.Show("Nothing to save!", "Error!");
+        return;
+      }
+      if (SaveResult.ShowDialog() == DialogResult.OK) { 
+        string filepath = SaveResult.FileName;
+        using (StreamWriter writer = new StreamWriter(filepath, false)) {
+          writer.WriteLine("X               Y");
+          foreach (DataRow row in data.Rows) {
+            writer.WriteLine($"{row["X"]}               {row["Y"]}");
+          }
         }
       }
     }

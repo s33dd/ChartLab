@@ -85,6 +85,7 @@
       this.saveResultToolStripMenuItem.Name = "saveResultToolStripMenuItem";
       this.saveResultToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
       this.saveResultToolStripMenuItem.Text = "Save Result";
+      this.saveResultToolStripMenuItem.Click += new System.EventHandler(this.saveResultToolStripMenuItem_Click);
       // 
       // openFileToolStripMenuItem
       // 
