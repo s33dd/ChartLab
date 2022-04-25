@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,11 @@ using System.Windows.Forms;
 namespace ChartLabFramework {
   public partial class MainForm : Form {
     private System.Data.DataTable data;
+    private double? highBorder = null;
+    private double? lowBorder = null;
+    private double? step = null;
+    private double? radius = null;
+    private double? y = null;
     public MainForm() {
       InitializeComponent();
       StartPosition = FormStartPosition.CenterScreen;
@@ -38,11 +44,11 @@ namespace ChartLabFramework {
     }
 
     private void DrawBtn_Click(object sender, EventArgs e) {
-      double? highBorder = null;
-      double? lowBorder = null;
-      double? step = null;
-      double? radius = null;
-      double? y = null;
+      highBorder = null;
+      lowBorder = null;
+      step = null;
+      radius = null;
+      y = null;
       double? x = null;
       int precision = 0;
       data = null;
@@ -123,6 +129,41 @@ namespace ChartLabFramework {
       DataTable table = new DataTable();
       table.Data = data;
       table.Show();
+    }
+
+    private void MainForm_Load(object sender, EventArgs e) {
+      AboutForm about = new AboutForm();
+      about.ShowDialog();
+    }
+
+    private void saveInitToolStripMenuItem_Click(object sender, EventArgs e) {
+      SaveInit.Filter = "txt files (*.txt)|*.txt";
+      if (RadiusData.Text == "" || HighBorderData.Text == "" || LowBorderData.Text == "" || HighBorderData.Text == "" || StepData.Text == "") {
+        MessageBox.Show("Please, fill all fields.", "Error!");
+        return;
+      }
+      if (SaveInit.ShowDialog() == DialogResult.OK) {
+        string filepath = SaveInit.FileName;
+        using (StreamWriter writer = new StreamWriter(filepath,false)) {
+          writer.WriteLine(RadiusData.Text);
+          writer.WriteLine(LowBorderData.Text);
+          writer.WriteLine(HighBorderData.Text);
+          writer.WriteLine(StepData.Text);
+        }
+      }
+    }
+
+    private void openFileToolStripMenuItem_Click(object sender, EventArgs e) {
+      OpenFile.Filter = "txt files (*.txt)|*.txt";
+      if (OpenFile.ShowDialog() == DialogResult.OK) {
+        var stream = OpenFile.OpenFile();
+        using (StreamReader reader = new StreamReader(stream)) {
+          RadiusData.Text = reader.ReadLine();
+          LowBorderData.Text = reader.ReadLine();
+          HighBorderData.Text = reader.ReadLine();
+          StepData.Text = reader.ReadLine();
+        }
+      }
     }
   }
 }

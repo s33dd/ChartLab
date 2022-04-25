@@ -124,7 +124,7 @@
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAMYAAAAwCAYAAABKUAVZAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAACYJJREFUeF7tmuWPFFsTh++/wgf4QiAET/DgTpDgvrgEJzjB3SW4uzvB3d3d3d2h
+        vAAADrwBlbxySQAACYJJREFUeF7tmuWPFFsTh++/wgf4QiAET/DgTpDgvrgEJzjB3SW4uzvB3d3d3d2h
         bp7aad5+Z8/NvbPT9A5sPclJRlvOqV/Z6b/EMIwUmDAMw4EJwzAcmDAMw4EJwzAcmDAMw4EJwzAcmDAM
         w4EJwzAcmDAMw4EJwzAcmDAMw4EJw/hXfvz4Id+/f5dv3779VoNrTi0mjID48uWLfPz4UY2I1yxMvLCw
         79+/j7xLO969eyfr1q2TqVOn/lbjxIkTkTuIHRNGAHz+/Fm2bt0qPXr0kLVr1+qiLFu2LC6PxX/Xr18v
@@ -168,4 +168,13 @@
         SUVORK5CYII=
 </value>
   </data>
+  <metadata name="OpenFile.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>125, 17</value>
+  </metadata>
+  <metadata name="SaveInit.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>225, 17</value>
+  </metadata>
+  <metadata name="SaveResult.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>319, 17</value>
+  </metadata>
 </root>

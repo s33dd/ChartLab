@@ -43,6 +43,9 @@
       this.StepData = new System.Windows.Forms.TextBox();
       this.FuncChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
       this.TableBtn = new System.Windows.Forms.Button();
+      this.OpenFile = new System.Windows.Forms.OpenFileDialog();
+      this.SaveInit = new System.Windows.Forms.SaveFileDialog();
+      this.SaveResult = new System.Windows.Forms.SaveFileDialog();
       this.menuStrip.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.FuncChart)).BeginInit();
@@ -73,20 +76,22 @@
       // saveInitToolStripMenuItem
       // 
       this.saveInitToolStripMenuItem.Name = "saveInitToolStripMenuItem";
-      this.saveInitToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+      this.saveInitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
       this.saveInitToolStripMenuItem.Text = "Save Initial";
+      this.saveInitToolStripMenuItem.Click += new System.EventHandler(this.saveInitToolStripMenuItem_Click);
       // 
       // saveResultToolStripMenuItem
       // 
       this.saveResultToolStripMenuItem.Name = "saveResultToolStripMenuItem";
-      this.saveResultToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+      this.saveResultToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
       this.saveResultToolStripMenuItem.Text = "Save Result";
       // 
       // openFileToolStripMenuItem
       // 
       this.openFileToolStripMenuItem.Name = "openFileToolStripMenuItem";
-      this.openFileToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+      this.openFileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
       this.openFileToolStripMenuItem.Text = "Open File";
+      this.openFileToolStripMenuItem.Click += new System.EventHandler(this.openFileToolStripMenuItem_Click);
       // 
       // aboutToolStripMenuItem
       // 
@@ -222,6 +227,10 @@
       this.TableBtn.UseVisualStyleBackColor = true;
       this.TableBtn.Click += new System.EventHandler(this.TableBtn_Click);
       // 
+      // OpenFile
+      // 
+      this.OpenFile.FileName = "OpenFile";
+      // 
       // MainForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -245,6 +254,7 @@
       this.MainMenuStrip = this.menuStrip;
       this.Name = "MainForm";
       this.Text = "ChartLab";
+      this.Load += new System.EventHandler(this.MainForm_Load);
       this.menuStrip.ResumeLayout(false);
       this.menuStrip.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -275,6 +285,9 @@
     private System.Windows.Forms.TextBox StepData;
     private System.Windows.Forms.DataVisualization.Charting.Chart FuncChart;
     private System.Windows.Forms.Button TableBtn;
+    private System.Windows.Forms.OpenFileDialog OpenFile;
+    private System.Windows.Forms.SaveFileDialog SaveInit;
+    private System.Windows.Forms.SaveFileDialog SaveResult;
   }
 }
 
