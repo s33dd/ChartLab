@@ -132,8 +132,10 @@ namespace ChartLabFramework {
     }
 
     private void MainForm_Load(object sender, EventArgs e) {
-      AboutForm about = new AboutForm();
-      about.ShowDialog();
+      if (!Properties.Settings.Default.NotShow) {
+        AboutForm about = new AboutForm();
+        about.ShowDialog();
+      }
     }
 
     private void saveInitToolStripMenuItem_Click(object sender, EventArgs e) {
